@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HackSCHS" content="24 hour hackathon for southern maryland high school students at St. Charles High School.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HackSCHS 3rd Annual Hackathon</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </head>
 <body>
     <div id="container">
@@ -13,11 +18,11 @@
         </div>
         <div id="nav">
              <ul>
-                 <li><a href="#"></a>About</li>
-                 <li><a href="#"></a>FAQ</li>
-                 <li><a href="#"></a>SCHS</li>
-                 <li><a href="#"></a>Sponsors</li>
-                 <li><a href="#"></a>Social Media</li>
+                 <li><a href="#">About</a></li>
+                 <li><a href="#">FAQ</a></li>
+                 <li><a href="#">SCHS</a></li>
+                 <li><a href="#">Sponsors</a></li>
+                 <li><a href="#">Social Media</a></li>
              </ul>
         </div>
         <div id="main">
@@ -31,27 +36,38 @@
         </div>
         <div id="about">
             <h2>About:</h2>
-                <p></p>    
+                <p>HackSCHS is a 24-hour programming marathon for innovative, and creative, and inspired students with interests ranging from the fine arts, engineering, computer and medical science to design and implement a software or hardware application. Sponsors provide specific themes and challenges, and competitors take them on. This will be the third hackathon organized at St. Charles High School for high school students in southern Maryland.</p>    
         </div>
         <div id="faq">
             <h2>FAQ:</h2>
-            <p>question 1</p>
-            <p>question 2</p>
-            <p>question 3</p>
-            <p>question 4</p>
-            <p>question 5</p>
-            <p>question 6</p>
+            <h4>How long is the hackathon?</h4>
+            <p>The event takes place over 24 hours. That's Saturday, February 29, at 12:00pm to Sunday, March 1st, at 12:00pm.</p>
+            <h4>Do I need to know how to code?</h4>
+            <p>This is a great oppurtunity to learn something new. There will be workshops for beginners and peer mentors to help you during the event.</p>
+            <h4>Do I need a Computer?</h4>
+            <p>You will need a computer to build your projects. You can bring your personal device. We will also have desktops and laptops available for you sign out.</p>
+            <h4>What if I don't have a group?</h4>
+            <p>Teams should be no more than <em>Four</em> people. If you dont have a team, we will help you find partners. However, if groups aren't your thing, you can work solo.</p>
+            <h4>Can I bring tech?</h4>
+            <p>Bringing your own tech is not necessary. We will have on hand a variety of tech hardware available to all hackers.</p>
+            <h4>Will I learn new stuff?</h4>
+            <p>You have to oppurtunity to build anything! Web, Mobile, Medical, Desktoop and hardware projects are all welcome. Challenge projects will be judged based on creativity, technical difficulty, and usefullness.</p>
+            <h4>Will there be prizes?</h4>
+            <p>During the opening ceremony, you will be presented with challenges. One team will be awarded for the best solution for a challenge. Challenges prizes are donated by our hackathon sponsors.</p>
+            <h4>I have more questions!</h4>
+            <p>You can get in touch with us via tstone@ccboe.com, or <a href="http://www.twitter.com/HackSCHS">Twitter</a>.</p>
         </div>
         <div id="sponsors">
             <h2>Sponsors:</h2>    
         </div>
         <div id="smedia">
-                <p>Twitter</p>
-                <p>GitHub</p>
-                <p>Devpost</p>
-                <p>Discord</p>
-                <p>&copy; 2019 St. Charles High School</p>
+                <p><a href="http://www.twitter.com/HackSCHS">Twitter</a></p>
+                <p><a href="http://https://github.com/Tmstone/hackSCHS">GitHub</a></p>
+                <p><a href="#">Devpost</a></p>
+                <p><a href="#">Discord</a></p>
+                <p>&copy; 2019 HackSCHS | St. Charles High School</p>
         </div>
     </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
