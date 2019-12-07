@@ -1,1 +1,38 @@
 /* Style sheet for main site */
+* {
+    border: 1px solid red;
+}
+body {
+    padding: 10px;
+}
+#header {
+    height: 100px;
+}
+#main {
+    text-align: center;
+    height: 450px;
+    padding: 50px 10px 10px 10px;
+}
+    #main p {
+        margin: 10px;
+    }
+#about {
+    height: 300px;
+    padding: 10px 100px;
+}
+#faq {
+    padding: 10px 100px
+}
+#sponsors {
+    height: 300px;
+}
+#smedia {
+    /* margin: 100% auto; */
+    height: 100px;
+    padding: 10px 100px;
+    background-color: #000;
+    color: #fff;
+}
+    #smedia p {
+        display: inline-block;
+    }
