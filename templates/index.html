@@ -31,13 +31,13 @@
                             <a class="nav-link" href="#">FAQ</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">SCHS</a>
-                        </li>
-                        <li class="nav-item ">
                             <a class="nav-link" href="#">Sponsors</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="#">Social Media</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">SCHS</a>
                         </li>
                     </ul>
                 </div>      
@@ -45,13 +45,14 @@
         </div>
         <div id="main">
             <h1>HackSCHS</h1>
-            <img src="{{ url_for('static', filename='img/hackSCHS18.png')}}" alt="" width="75" height="175">
+            <img src="{{ url_for('static', filename='img/hackSCHS18.png') }}" alt="" width="75" height="175">
             <h3>February 29th - March 1st</h3>
                 <p>WINTER 2020</p>
                 <p>St. Charles High School | Waldorf, MD</p>
-                    <button>Sign-in</button>
-                    <button>Register</button>
-                <p>Intersted in sponsoring us? View our prospectus <a href="https://spark.adobe.com/page/OXIVYLoCPUk8N/">here</a>. </p>
+                <h3>Registration opens January 2, 2020</h3>
+                    <!--button class="btn btn-success">Register</button>
+                    <button class="btn btn-primary">Sign-in</button-->    
+                <p>Intersted in sponsoring us? View our prospectus <a href="https://spark.adobe.com/page/OXIVYLoCPUk8N/" target="_blank">here</a>. </p>
         </div>
         <div id="about">
             <h2>About:</h2>
@@ -77,13 +78,16 @@
             <p>You can get in touch with us via tstone@ccboe.com, or <a href="http://www.twitter.com/HackSCHS">Twitter</a>.</p>
         </div>
         <div id="sponsors">
-            <h2>Sponsors:</h2>    
+            <h2>Sponsors:</h2>
+            <img src="{{ url_for('static', filename='img/ctelogo.png') }}" alt="Charles County Public Schools CTE logo" width="155" height="200">  
+            <img src="{{ url_for('static', filename='img/mlh-localhost-logo-dark.png')}}" alt="mlh-localhost-logo-dark">
         </div>
         <div id="smedia">
                 <p><a href="http://www.twitter.com/HackSCHS">Twitter</a></p>
                 <p><a href="http://https://github.com/Tmstone/hackSCHS">GitHub</a></p>
                 <p><a href="#">Devpost</a></p>
                 <p><a href="#">Discord</a></p>
+                <p><a href="#">SCHS</a></p>
                 <p class="bottom">&copy; 2019 HackSCHS | St. Charles High School</p>
         </div>
     </div>

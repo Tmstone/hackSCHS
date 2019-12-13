@@ -1,7 +1,7 @@
-/* Style sheet for main site */
+/* Style sheet for main site 
 * {
     border: 1px solid red;
-}
+}*/
 body {
     padding: 10px;
 }
@@ -18,20 +18,22 @@ body {
     }
 #about {
     height: 300px;
-    padding: 70px 100px;
+    padding: 70px 300px;
     color: #fff;
     background-color: #165F30;
 }
 #faq {
-    padding: 30px 100px
+    padding: 30px 300px;
+    background-color: #F4FAD2;
 }
 #sponsors {
     height: 300px;
+    padding: 20px 100px;
 }
 #smedia {
     /* margin: 100% auto; */
     height: 100px;
-    padding: 10px 200px;
+    padding: 10px 450px;
     background-color: #000;
     color: #fff;
 }
