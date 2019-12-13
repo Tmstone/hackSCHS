@@ -6,11 +6,11 @@ body {
     padding: 10px;
 }
 #header {
-    height: 100px;
+    height: 50px;
 }
 #main {
     text-align: center;
-    height: 450px;
+    height: 500px;
     padding: 50px 10px 10px 10px;
 }
     #main p {
@@ -18,10 +18,12 @@ body {
     }
 #about {
     height: 300px;
-    padding: 10px 100px;
+    padding: 70px 100px;
+    color: #fff;
+    background-color: #165F30;
 }
 #faq {
-    padding: 10px 100px
+    padding: 30px 100px
 }
 #sponsors {
     height: 300px;
@@ -29,10 +31,12 @@ body {
 #smedia {
     /* margin: 100% auto; */
     height: 100px;
-    padding: 10px 100px;
+    padding: 10px 200px;
     background-color: #000;
     color: #fff;
 }
     #smedia p {
+       /* margin: 100% auto; */
         display: inline-block;
+        text-align: center;
     }
