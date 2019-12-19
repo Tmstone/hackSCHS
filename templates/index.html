@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HackSCHS 3rd Annual Hackathon</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,500,900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='main.js') }}"></script>
@@ -34,17 +35,15 @@
                             <a class="nav-link" href="#">Sponsors</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Social Media</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">SCHS</a>
+                            <a class="nav-link" href="https://www.ccboe.com/schools/stcharles/" target="_blank">SCHS</a>
                         </li>
                     </ul>
+                    <!--add social media logos here-->
                 </div>      
             </nav>   
         </div>
         <div id="main">
-            <h1>HackSCHS</h1>
+            <h1 class="">HackSCHS</h1>
             <img src="{{ url_for('static', filename='img/hackSCHS18.png') }}" alt="" width="75" height="175">
             <h3>February 29th - March 1st</h3>
                 <p>WINTER 2020</p>
@@ -83,14 +82,15 @@
             <img src="{{ url_for('static', filename='img/mlh-localhost-logo-dark.png')}}" alt="mlh-localhost-logo-dark">
         </div>
         <div id="smedia">
-                <p><a href="http://www.twitter.com/HackSCHS">Twitter</a></p>
-                <p><a href="http://https://github.com/Tmstone/hackSCHS">GitHub</a></p>
+                <!--p><a href="http://www.twitter.com/HackSCHS"><ion-icon size="large" name="logo-twitter"></ion-icon></a></p>
+                <p><a href="http://https://github.com/Tmstone/hackSCHS"><ion-icon size="large" name="logo-github"></ion-icon></a></p>
                 <p><a href="#">Devpost</a></p>
                 <p><a href="#">Discord</a></p>
-                <p><a href="#">SCHS</a></p>
+                <p><a href="https://www.ccboe.com/schools/stcharles/" target="_blank">SCHS</a></p-->
                 <p class="bottom">&copy; 2019 HackSCHS | St. Charles High School</p>
         </div>
     </div>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

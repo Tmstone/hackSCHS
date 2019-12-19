@@ -4,20 +4,24 @@
 }*/
 body {
     padding: 10px;
+    font-family: 'Alegreya', serif;
 }
 #header {
     height: 50px;
-}
+} 
 #main {
     text-align: center;
     height: 500px;
     padding: 50px 10px 10px 10px;
 }
+    #main h1 {
+    font-size: xx-large;
+}
     #main p {
         margin: 10px;
     }
 #about {
-    height: 300px;
+    height: 350px;
     padding: 70px 300px;
     color: #fff;
     background-color: #165F30;
@@ -33,12 +37,11 @@ body {
 #smedia {
     /* margin: 100% auto; */
     height: 100px;
-    padding: 10px 450px;
+    padding: 30px 0 10px 0;
     background-color: #000;
     color: #fff;
 }
     #smedia p {
-       /* margin: 100% auto; */
-        display: inline-block;
+        display: block;
         text-align: center;
     }
