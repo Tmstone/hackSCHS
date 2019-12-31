@@ -11,18 +11,18 @@ body {
 } 
 #main {
     text-align: center;
-    height: 500px;
+    height: 600px;
     padding: 50px 10px 10px 10px;
 }
     #main h1 {
-    font-size: xx-large;
+    font-size: 3em;
 }
     #main p {
         margin: 10px;
     }
 #about {
-    height: 350px;
-    padding: 70px 300px;
+    height: 400px;
+    padding: 100px 300px;
     color: #fff;
     background-color: #165F30;
 }
