@@ -11,7 +11,7 @@ app.add_url_rule('/logout', view_func=logout)
 app.add_url_rule('/register', view_func=new_user)
 
 #login user
-
+#app.add_url_rule('/signin', view_func=log_in)
 #logout user
 
 #admin login

@@ -15,7 +15,8 @@ body {
     padding: 50px 10px 10px 10px;
 }
     #main h1 {
-    font-size: 3em;
+    font-size: 4em;
+    color: #166030;
 }
     #main p {
         margin: 10px;
