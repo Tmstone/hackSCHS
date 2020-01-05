@@ -5,17 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HackSCHS | Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,500,900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>HackSCHS | Dashboard</h1>
         </div>
+        <div id="nav">
+            <ul>
+                <li><a href="/dash">Dashboard</a></li>
+                <li><a href="/register/user">Application</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
         <div class="section">
             <h3>Your Status</h3>
-                <p><em>Registration Deadline:</em>Monday, February 24th 2019, 11:59 pm (Eastern)</p>
+                <p><em>Registration Deadline: </em>Monday, February 24th 2019, 11:59 pm (Eastern)</p>
         </div>
-        <p>&copy; 2019 St. Charles High School</p>
+        <p>&copy; 2019-2020 HackSCHS | St. Charles High School</p>
     </div>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

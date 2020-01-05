@@ -14,6 +14,9 @@ app.add_url_rule('/register', view_func=new_user)
 #app.add_url_rule('/signin', view_func=log_in)
 #logout user
 
+#display dashboard
+app.add_url_rule('/dash', view_func=dashboard)
+
 #admin login
 
 #process form

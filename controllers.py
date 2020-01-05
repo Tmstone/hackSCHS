@@ -12,13 +12,17 @@ def new_user():
     return render_template('register.html')
 #login user
 
-#logout user
-def logout():
-    session.clear
-    return redirect('/')
-
 #admin login
 
 #process form
 
 #pull all records
+
+#display dashboard
+def dashboard():
+    return render_template('dashboard.html')
+
+#logout user
+def logout():
+    session.clear
+    return redirect('/')
