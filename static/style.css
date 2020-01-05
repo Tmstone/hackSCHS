@@ -6,6 +6,9 @@ body {
     padding: 10px;
     font-family: 'Alegreya', serif;
 }
+.lForm {
+    display:none;
+}
 #header {
     height: 50px;
 } 
@@ -46,3 +49,4 @@ body {
         display: block;
         text-align: center;
     }
+   
