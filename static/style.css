@@ -12,6 +12,10 @@ body {
 #header {
     height: 50px;
 } 
+    #header h3 {
+        font-size: 2em;
+        color: #245c37;
+    }
 #main {
     text-align: center;
     height: 600px;
@@ -31,21 +35,21 @@ body {
     background-color: #165F30;
 }
 #faq {
-    padding: 30px 300px;
+    padding: 70px 300px;
     background-color: #F4FAD2;
 }
 #sponsors {
     height: 300px;
     padding: 20px 100px;
 }
-#smedia {
+.smedia {
     /* margin: 100% auto; */
     height: 100px;
     padding: 30px 0 10px 0;
     background-color: #000;
     color: #fff;
 }
-    #smedia p {
+    .smedia p {
         display: block;
         text-align: center;
     }

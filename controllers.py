@@ -10,9 +10,14 @@ def index():
 #register user
 def new_user():
     return render_template('register.html')
+
 #login user
+def login():
+    return redirect('/dash')
 
 #admin login
+def admin():
+    return render_template('admindash.html')
 
 #process form
 

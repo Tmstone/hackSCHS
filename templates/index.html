@@ -19,7 +19,7 @@
         </div>
         <div id="nav">
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">hackSCHS</a>
+                <a class="navbar-brand" href="#main">hackSCHS</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -29,22 +29,35 @@
                             <a class="nav-link" href="/register">Register</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="/sign">Sign-in</a>
+                            <a class="nav-link" href="#about">About</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#faq">FAQ</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">FAQ</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">Sponsors</a>
+                            <a class="nav-link" href="#sponsors">Sponsors</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="https://www.ccboe.com/schools/stcharles/" target="_blank">SCHS</a>
                         </li>
                     </ul>
                     <!--add social media logos here-->
+                    <ul class="navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a  class="nav-link" href="http://www.twitter.com/HackSCHS"><ion-icon size="medium" name="logo-twitter"></ion-icon></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://https://github.com/Tmstone/hackSCHS"><ion-icon size="medium" name="logo-github"></ion-icon></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="{{ url_for('static', filename='img/discord-logo-white.png')}}" height="20" alt="discord white logo">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-sm btn-outline-secondary" id="lBtn">Sign-in</button>  
+                        </li>
+                    </ul>
                 </div>      
             </nav>   
         </div>
@@ -68,9 +81,8 @@
             <h3>February 29th - March 1st</h3>
                 <p>WINTER 2020</p>
                 <p>St. Charles High School | Waldorf, MD</p>
-                <h3>Registration opens January 2, 2020</h3>
-                    <button class="btn btn-success" id="rBtn" formaction="/register">Register</button>
-                    <button class="btn btn-primary" id="lBtn">Sign-in</button>    
+                <h3>Registration Deadline: Monday, February 24th, 2020, 11:59 pm (Eastern)</h3>
+                    <!--button class="btn btn-primary" id="lBtn">Sign-in</button-->    
                 <p>Interested in sponsoring us? View our prospectus <a href="https://spark.adobe.com/page/OXIVYLoCPUk8N/" target="_blank">here</a>. </p>
         </div>
         <div id="about">
