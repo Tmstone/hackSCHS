@@ -18,10 +18,18 @@ app.add_url_rule('/login', view_func=login)
 #display dashboard
 app.add_url_rule('/dash', view_func=dashboard)
 
+#display user update page
+app.add_url_rule('/user/id', view_func=account)
+
 #admin login
 app.add_url_rule('/admindash', view_func=admin)
 
 #process form
+
+
+
+
+
 
 #pull all records
 

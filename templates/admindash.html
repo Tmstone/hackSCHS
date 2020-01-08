@@ -30,6 +30,7 @@
                 <div class="section">
                     <h2>Welcome {{name}}</h2>
                     <p><em>Registration Deadline: </em>Monday, February 24th 2019, 11:59 pm (Eastern)</p>
+                    <!--Registration data-->
                     <table class="table">
                         <thead class="thead-info">
                             <tr>
@@ -43,6 +44,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             <tr>
                                 <td>{{fname}} {{lname}}</td>
                                 <td>{{email}}</td>
@@ -52,10 +54,12 @@
                                 <td>{{school}}</td>
                                 <td>{{graduation}}</td>
                             </tr>
+
                         </tbody>
                     </table>
+                    <!--Parant contact-->
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-6">
                             <table class="table">
                                 <thead class="thead-dark">
                                     <tr>
@@ -65,20 +69,63 @@
                                     </tr> 
                                 </thead>
                                 <tbody>
+
                                     <tr>
                                         <td>{{fname}} {{lname}}</td>
                                         <td>{{parentfn}} {{parentln}}</td>
                                         <td>{{pphone}} {{pemail}}</td>
                                     </tr>
+
                                 </tbody>
                             </table>
-                            <div class="col-4">
+                        </div>
+                            <!-- school data goes here-->
+                        <div class="col-6">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>School</th>
+                                        <th>Year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                            </div>
+                                    <tr>
+                                        <td>{{fname}} {{lname}}</td>
+                                        <td>{{school}}</td>
+                                        <td>{{year}}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    
-                    
+                    <!-- bonus data goes here -->
+                    <div class="col-10">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Career Goal</th>
+                                    <th>Favorite Language</th>
+                                    <th>Hobby</th>
+                                    <th>Hackathon Goal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <th>{{fname}} {{lnmae}}</th>
+                                    <td>{{career}}</td>
+                                    <td>{{language}}</td>
+                                    <th>{{hobby}}</th>
+                                    <th>{{goal}}</th>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

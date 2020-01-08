@@ -27,6 +27,10 @@ def admin():
 def dashboard():
     return render_template('dashboard.html')
 
+#display user update page
+def account():
+    return render_template('account.html')
+
 #logout user
 def logout():
     session.clear
