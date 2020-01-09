@@ -7,9 +7,20 @@ from config import db, datetime
 def index():
     return render_template('index.html')
 
-#register user
-def new_user():
+#register form
+def register():
     return render_template('register.html')
+
+#Add new user
+def new_user():
+    errors = User.validate(request.form)
+    if errors:
+        for error in errors:
+            flash(error)
+        return redirect('/')
+    user_id = User.add_user(request.form)
+    session['user_id'] = user_id
+    return redirect('/dashboard')
 
 #login user
 def login():
