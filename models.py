@@ -15,11 +15,9 @@ class User(db.Model):
     email = db.Column(db.String(45), nullable = False)
     password = db.Column(db.String(255), nullable = False)
     phone = db.Column(db.String(45), nullable = False)
-    gender = db.Column(db.String(45), nullable = False)
-    ethnicity = db.Column(db.String(45), nullable = False)
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
-    
+#relationships      
 
 class Gender(db.Model):
     __tablename__ = "genders"
@@ -41,8 +39,26 @@ class Ethnicity(db.Model):
 
 class School(db.Model):
     __tablename__ ="schools"
-    id = db.Column.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
     school = db.Column(db.String(225), nullable = False)
+    graduation = db.Column(db.String(45), nullable = False)
+#foriegn key here
+    created_at = db.Column(db.DateTime, server_default=func.now())
+    updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
+#relationship here
+
+class Parent(db.Model):
+    __tablename__ = "parents"
+    id = db.Column(db.Integer, primary_key = True)
+    parent_first = db.Column(db.String(45), nullable = False)
+    parent_last = db.Column(db.String(45), nullable = False)  
+    parent_phone = db.Column(db.String(45), nullable = False)
+    parent_email = db.Column(db.String(45), nullable = False)
 
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
+
+class Bonus(db.Model):
+    __tablename__ = "bonuses"
+    id = db.Column(db.Integer, primary_key = True)
+
