@@ -22,7 +22,9 @@ app.add_url_rule('/dashboard', view_func=dashboard)
 #display user update page
 app.add_url_rule('/user/id', view_func=account)
 
-#admin login
+#admin routes
+app.add_url_rule('/raspberry', view_func=pi)
+app.add_url_rule('/admin', view_func=admin_in, methods=['POST'])
 app.add_url_rule('/admindash', view_func=admin)
 
 #process form

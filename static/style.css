@@ -54,4 +54,9 @@ body {
         display: block;
         text-align: center;
     }
+#login {
+    width: 600px;
+    padding: 20px;
+    background: #FFFEE4;
+}
    

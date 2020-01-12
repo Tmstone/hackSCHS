@@ -26,10 +26,16 @@ def new_user():
 def login():
     return redirect('/dash')
 
-#admin login
+##admin routes##
+#admin dashboard
 def admin():
     return render_template('admindash.html')
 
+def pi():
+    return render_template('login.html')
+
+def admin_in():
+    return redirect('/admindash')
 #process form
 
 #pull all records
