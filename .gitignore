@@ -1,0 +1,6 @@
+migrations/
+*.pyc
+hackschs.db
+py3hackEnv/
+.vscode/
+__pycache__

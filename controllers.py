@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request, session, flash
 from config import db, datetime
-#from models import User
+from models import *
 
 ### Controller Functions ###
 #render index

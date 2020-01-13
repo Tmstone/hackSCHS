@@ -17,7 +17,12 @@ class User(db.Model):
     phone = db.Column(db.String(45))
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
-     
+    
+    def __repr__(self):
+        return '<User {}>'.format(self.first_name)
+    
+    
+    
 
 class Gender(db.Model):
     __tablename__ = "genders"
@@ -35,7 +40,7 @@ class Ethnicity(db.Model):
     ethnicity = db.Column(db.String(45), nullable = False)
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
-    user=db.relationship('Customer',foreign_keys=[customer_id],backref=db.backref("ethnicities",cascade="all,delete-orphan"))
+    user=db.relationship('User',foreign_keys=[user_id],backref=db.backref("ethnicities",cascade="all,delete-orphan"))
 
 class School(db.Model):
     __tablename__ ="schools"
