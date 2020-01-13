@@ -35,8 +35,10 @@ def pi():
     return render_template('login.html')
 
 def admin_in():
+    
     return redirect('/admindash')
-#process form
+
+#process registration form
 
 #pull all records
 
