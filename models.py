@@ -21,8 +21,65 @@ class User(db.Model):
     def __repr__(self):
         return '<User {}>'.format(self.first_name)
     
+    @classmethod
+    def validate_user(cls, email):
+        errors=[]
+        existing_users=cls.query.filter(cls.email==email).count()
+        if (existing_users)>0:
+            errors.append('This email address is already registered!')
+        return errors
+
+    @classmethod
+    def validate_name(cls, first_name, last_name):
+        if errors[]
+        if len(first_name and last_name) < 2:
+            errors.append('Please enter a valid name (*at least three characters*).')
+        return errors
+
+    @classmethod
+    def validate_password(cls, password, confirm_password):
+        if errors[]
+        if not PW_REGEX.match(password):
+            errors.append('* Please enter a valid password: 6-20 characters, A-Z and (# $ % @ &)')
+        if password != confirm_password:
+            errors.append('Passwords don\'t match.')
+        return errors
     
+    @classmethod
+    def validate_email(cls, email):
+        if not EMAIL_REGEX.match(email):
+            errors.append('Please enter a valid email.')
+        return errors
     
+    @classmethod
+    def validate_phone(cls, phone):
+        if len(phone) < 7:
+            errors.append('Please enter a valid number')
+        return errors
+#validate school
+    @classmethod
+    def validate_school(cls, school):
+        if len(school) < 2:
+            errors.append('Please enter a valid school name.')
+            
+#validate gradauation
+
+#validate parent info    
+    @classmethod
+    def validate_attendee(cls, attendee_info):
+        errors []
+        errors += cls.validate_name(attendee_info['first_name'], attendee_info['last_name'])
+        errors += cls.validate_password(attendee_info['password'])
+        return errors
+
+    @classmethod
+    def new(cls, attendee_info):
+
+    pw_hash=bcrypt.generate_password_hash(attendee_info['password'])    
+    new_attendee=cls(first_name=attendee_info['first_name'], last_name=attendee_info['last_name'], )
+    db.session.add(new_attendee)
+    db.session.commit()
+    return new_attendee
 
 class Gender(db.Model):
     __tablename__ = "genders"
