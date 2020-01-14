@@ -70,7 +70,7 @@ class User(db.Model):
     def validate_graduation(cls, graduation):
         errors=[]
         if len(graduation) < 4:
-            errors.append('Please enter a valid year.')
+            errors.append('Please enter a valid year [yyyy].')
         return errors 
 
     @classmethod
@@ -111,10 +111,25 @@ class User(db.Model):
     @classmethod
     def new(cls, attendee_info):
         pw_hash = bcrypt.generate_password_hash(attendee_info['password'])    
-        new_attendee=cls(first_name=attendee_info['first_name'], last_name=attendee_info['last_name'], )
+        new_attendee=cls(first_name=attendee_info['first_name'], last_name=attendee_info['last_name'],
+        email=attendee_info['email'], password=pw_hash, phone=attendee_info['phone'])
         db.session.add(new_attendee)
         db.session.commit()
+        gender = Gender.new(new_attendee.id, attendee_info)
+        ethnicity = Ethnicity.new(new_attendee.id, attendee_info)
+        school = School.new(new_attendee.id , attendee_info)
+        graduation = Graduation.new(new_attendee.id, attendee_info)
+        goal = Goal.new(new_attendee.id , attendee_info)
+        parents = Parent.new(new_attendee.id, attendee_info)
+        bonus = Bonus.new(new_attendee.id, attendee_info)
         return new_attendee
+
+    @classmethod
+    def get(cls, user_id):
+        return cls.query.get(user_id)
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
 
 class Gender(db.Model):
     __tablename__ = "genders"
@@ -124,6 +139,19 @@ class Gender(db.Model):
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     user=db.relationship('User',foreign_keys=[user_id],backref=db.backref("genders",cascade="all,delete-orphan"))
+    
+    @classmethod
+    def new(cls, user_id, gender):
+        new_gender = cls(user_id=user_id, gender=gender['gender'])
+        db.seesion.add(new_gender)
+        db.session.commit()
+        return new_gender
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+    @classmethod
+    def by_gender(cls, gender):
+        return cls.query.filter(cls.gender==gender).first()
 
 class Ethnicity(db.Model):
     __tablename__ = "ethnicities"
@@ -134,6 +162,19 @@ class Ethnicity(db.Model):
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     user=db.relationship('User',foreign_keys=[user_id],backref=db.backref("ethnicities",cascade="all,delete-orphan"))
 
+    @classmethod
+    def new(cls, user_id, race):
+        new_ethnicity = cls(user_id=user_id, ethnicity=race['ethnicity'])
+        db.seesion.add(new_ethnicity)
+        db.session.commit()
+        return new_ethnicity
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+    @classmethod
+    def by_gender(cls, race):
+        return cls.query.filter(cls.race==race).first()
+
 class School(db.Model):
     __tablename__ ="schools"
     id = db.Column(db.Integer, primary_key = True)
@@ -142,6 +183,19 @@ class School(db.Model):
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     user=db.relationship('User',foreign_keys=[user_id],backref=db.backref("schools",cascade="all,delete-orphan"))
+    
+    @classmethod
+    def new(cls, user_id, school):
+        new_school = cls(user_id=user_id, school=school['school'])
+        db.seesion.add(new_school)
+        db.session.commit()
+        return new_school
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+    @classmethod
+    def by_gender(cls, school):
+        return cls.query.filter(cls.school==school).first()
 
 class Graduation(db.Model):
     __tablename__ = "graduations"
@@ -151,6 +205,19 @@ class Graduation(db.Model):
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     customer=db.relationship('User',foreign_keys=[user_id],backref=db.backref("graduations",cascade="all,delete-orphan"))
+    
+    @classmethod
+    def new(cls, user_id, year):
+        new_graduation = cls(user_id=user_id, graduation=year['graduation'])
+        db.seesion.add(new_graduation)
+        db.session.commit()
+        return new_graduation
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+    @classmethod
+    def by_gender(cls, year):
+        return cls.query.filter(cls.year==graduation).first()
 
 class Goal(db.Model):
     __tablename__ =  "goals"
@@ -160,6 +227,13 @@ class Goal(db.Model):
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     user=db.relationship('User',foreign_keys=[user_id],backref=db.backref("goals",cascade="all,delete-orphan"))
+    
+    @classmethod
+    def new(cls, user_id, goal):
+        new_goal = cls(user_id=user_id, goal=goal['goal'])
+        db.seesion.add(new_goal)
+        db.session.commit()
+        return new_goal
 
 class Parent(db.Model):
     __tablename__ = "parents"
@@ -172,6 +246,9 @@ class Parent(db.Model):
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     user=db.relationship('User',foreign_keys=[user_id],backref=db.backref("parents",cascade="all,delete-orphan"))
+
+#   @classmethod
+#    def 
 
 class Bonus(db.Model):
     __tablename__ = "bonuses"

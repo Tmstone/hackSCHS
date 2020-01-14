@@ -26,6 +26,11 @@ def new_user():
 def login():
     return redirect('/dash')
 
+#Adding first name
+def first():
+    user = User.query.get(session['user_id'])
+    return user.first_name
+
 ##admin routes##
 #admin dashboard
 def admin():
@@ -44,7 +49,14 @@ def admin_in():
 
 #display dashboard
 def dashboard():
-    return render_template('dashboard.html')
+    if 'user_id' not in session:
+        return('/')
+    user = User.get(session['user_id'])
+    session['first_name'] = user.first_name
+    details = User.query
+    return render_template('dashboard.html',
+    user = user
+    )
 
 #display user update page
 def account():
