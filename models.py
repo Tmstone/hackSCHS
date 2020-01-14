@@ -56,7 +56,7 @@ class User(db.Model):
     def validate_phone(cls, phone):
         errors=[]
         if len(phone) < 7:
-            errors.append('Please enter a valid number')
+            errors.append('Please enter a valid phone number')
         return errors
 
     @classmethod
@@ -66,9 +66,10 @@ class User(db.Model):
             errors.append('Please enter a valid school name.')
         return errors    
 
+    @classmethod
     def validate_graduation(cls, graduation):
         errors=[]
-        if len(school) < 4:
+        if len(graduation) < 4:
             errors.append('Please enter a valid year.')
         return errors 
 
@@ -82,7 +83,7 @@ class User(db.Model):
     @classmethod
     def validate_parent_phone(cls, parent_phone):
         errors=[]
-        if not PHONE_REGEX.match(phone):
+        if not PHONE_REGEX.match(parent_phone):
             errors.append('Please enter a valid phone number.')
         return errors
 
@@ -97,17 +98,23 @@ class User(db.Model):
     def validate_attendee(cls, attendee_info):
         errors = []
         errors += cls.validate_name(attendee_info['first_name'], attendee_info['last_name'])
-        errors += cls.validate_password(attendee_info['password'])
-        
+        errors += cls.validate_email(attendee_info['email'])
+        errors += cls.validate_password(attendee_info['password'], attendee_info['confirm_password'])
+        errors += cls.validate_phone(attendee_info['phone'])
+        errors += cls.validate_school(attendee_info['school'])
+        errors += cls.validate_graduation(attendee_info['graduation'])
+        errors += cls.validate_parent(attendee_info['parent_first'], attendee_info['parent_last'] )
+        errors += cls.validate_parent_email(attendee_info['parent_email'])
+        errors += cls.validate_parent_phone(attendee_info['parent_phone'])
         return errors
 
     @classmethod
     def new(cls, attendee_info):
-    pw_hash = bcrypt.generate_password_hash(attendee_info['password'])    
-    new_attendee=cls(first_name=attendee_info['first_name'], last_name=attendee_info['last_name'], )
-    db.session.add(new_attendee)
-    db.session.commit()
-    return new_attendee
+        pw_hash = bcrypt.generate_password_hash(attendee_info['password'])    
+        new_attendee=cls(first_name=attendee_info['first_name'], last_name=attendee_info['last_name'], )
+        db.session.add(new_attendee)
+        db.session.commit()
+        return new_attendee
 
 class Gender(db.Model):
     __tablename__ = "genders"

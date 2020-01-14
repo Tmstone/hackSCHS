@@ -13,11 +13,11 @@ def register():
 
 #Add new user
 def new_user():
-    errors = User.validate(request.form)
+    errors = User.validate_attendee(request.form)
     if errors:
         for error in errors:
             flash(error)
-        return redirect('/')
+        return redirect('/register')
     user_id = User.add_user(request.form)
     session['user_id'] = user_id
     return redirect('/dashboard')
