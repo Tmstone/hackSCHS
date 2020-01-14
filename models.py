@@ -5,7 +5,7 @@ from config import *
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 PW_REGEX = re.compile('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$')
-PHONE_REGEX=re.compile('^\d{3}-\d{3}-\d{4}$')
+PHONE_REGEX = re.compile('^\d{3}-\d{3}-\d{4}$')
 
 class User(db.Model):
     __tablename__ = "users"
@@ -31,14 +31,14 @@ class User(db.Model):
 
     @classmethod
     def validate_name(cls, first_name, last_name):
-        if errors[]
+        errors=[]
         if len(first_name and last_name) < 2:
             errors.append('Please enter a valid name (*at least three characters*).')
         return errors
 
     @classmethod
     def validate_password(cls, password, confirm_password):
-        if errors[]
+        errors=[]
         if not PW_REGEX.match(password):
             errors.append('* Please enter a valid password: 6-20 characters, A-Z and (# $ % @ &)')
         if password != confirm_password:
@@ -47,35 +47,63 @@ class User(db.Model):
     
     @classmethod
     def validate_email(cls, email):
+        errors=[]
         if not EMAIL_REGEX.match(email):
             errors.append('Please enter a valid email.')
         return errors
     
     @classmethod
     def validate_phone(cls, phone):
+        errors=[]
         if len(phone) < 7:
             errors.append('Please enter a valid number')
         return errors
-#validate school
+
     @classmethod
     def validate_school(cls, school):
+        errors=[]
         if len(school) < 2:
             errors.append('Please enter a valid school name.')
-            
-#validate gradauation
+        return errors    
 
-#validate parent info    
+    def validate_graduation(cls, graduation):
+        errors=[]
+        if len(school) < 4:
+            errors.append('Please enter a valid year.')
+        return errors 
+
+    @classmethod
+    def validate_parent(cls, parent_first, parent_last):
+        errors=[]
+        if len(parent_first and parent_last) < 2:
+            errors.append('Please enter a parent name.')
+        return errors
+    
+    @classmethod
+    def validate_parent_phone(cls, parent_phone):
+        errors=[]
+        if not PHONE_REGEX.match(phone):
+            errors.append('Please enter a valid phone number.')
+        return errors
+
+    @classmethod
+    def validate_parent_email(cls, parent_email):
+        errors = []
+        if not EMAIL_REGEX.match(parent_email):
+            errors.append('Please enter a valid parent email.')
+        return errors
+    
     @classmethod
     def validate_attendee(cls, attendee_info):
-        errors []
+        errors = []
         errors += cls.validate_name(attendee_info['first_name'], attendee_info['last_name'])
         errors += cls.validate_password(attendee_info['password'])
+        
         return errors
 
     @classmethod
     def new(cls, attendee_info):
-
-    pw_hash=bcrypt.generate_password_hash(attendee_info['password'])    
+    pw_hash = bcrypt.generate_password_hash(attendee_info['password'])    
     new_attendee=cls(first_name=attendee_info['first_name'], last_name=attendee_info['last_name'], )
     db.session.add(new_attendee)
     db.session.commit()
