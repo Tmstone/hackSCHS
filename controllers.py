@@ -53,9 +53,9 @@ def dashboard():
         return('/')
     user = User.get(session['user_id'])
     session['first_name'] = user.first_name
-    details = User.query
+    details = User.query.all()
     return render_template('dashboard.html',
-    user = user
+    user = user, data = details
     )
 
 #display user update page
