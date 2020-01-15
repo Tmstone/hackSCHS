@@ -217,7 +217,7 @@ class Graduation(db.Model):
         return cls.query.all()
     @classmethod
     def by_gender(cls, year):
-        return cls.query.filter(cls.year==graduation).first()
+        return cls.query.filter(cls.year==year).first()
 
 class Goal(db.Model):
     __tablename__ =  "goals"
@@ -247,8 +247,12 @@ class Parent(db.Model):
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     user=db.relationship('User',foreign_keys=[user_id],backref=db.backref("parents",cascade="all,delete-orphan"))
 
-#   @classmethod
-#    def 
+    @classmethod
+    def new(cls, user_id, parent):
+        new_parent = cls(user_id=)
+        db.session.add(new_parent)
+        db.session.commit()
+        return new_parent
 
 class Bonus(db.Model):
     __tablename__ = "bonuses"
