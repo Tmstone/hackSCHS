@@ -249,7 +249,7 @@ class Parent(db.Model):
 
     @classmethod
     def new(cls, user_id, parent):
-        new_parent = cls(user_id=)
+        new_parent = cls(user_id=user_id)
         db.session.add(new_parent)
         db.session.commit()
         return new_parent
