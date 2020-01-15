@@ -29,20 +29,20 @@
             <div class="col-10">
                 <div id="section">
                     <h2>Application</h2>
-                    <h3>Basic Information</h3>
+                    <h3>{{user.first_name}}'s Basic Information</h3>
                         <p class="red">*Required</p> 
                     <form action="#" method="post">
                         <div class="form-group">
                             <label for="first_name">First Name*</label>
-                            <input type="text" class="form-control" name="first_name" value="{{first_name}}">
+                            <input type="text" class="form-control" name="first_name" value="{{user.first_name}}">
                         </div>
                         <div class="form-group">
                             <label for="last_name">Last Name*</label>
-                            <input type="text" class="form-control" name="last_name" value="{{last_name}}">
+                            <input type="text" class="form-control" name="last_name" value="{{user.last_name}}">
                         </div>
                         <div class="form-group">
                             <label for="email">Email*</label>
-                        <input type="text" class="form-control" name="email" value="{{email}}">
+                        <input type="text" class="form-control" name="email" value="{{user.email}}">
                         </div>
                         <!--div class="form-group">
                             <label for="password">Password*</label>
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label for="phone">Phone*</label>
                             <p>We need this in case we have to urgently contact you!</p>
-                            <input type="text" class="form-control" name="phone" value="{{phone}}">
+                            <input type="text" class="form-control" name="phone" value="{{user.phone}}">
                         </div>
                         <!--div class="form-group">
                             <label for="bday">Date of Birth*</label>

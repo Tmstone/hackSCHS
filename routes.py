@@ -13,8 +13,7 @@ app.add_url_rule('/register', view_func=register)
 #add new user 
 app.add_url_rule('/user/new', view_func=new_user, methods=['POST'])
 #login user
-app.add_url_rule('/login', view_func=login)
-
+app.add_url_rule('/login', view_func=login, methods=['POST'])
 
 #display dashboard
 app.add_url_rule('/dashboard', view_func=dashboard)

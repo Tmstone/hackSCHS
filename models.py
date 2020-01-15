@@ -111,7 +111,7 @@ class User(db.Model):
     @classmethod
     def add_user(cls, attendee_info):
         pw_hash = bcrypt.generate_password_hash(attendee_info['password'])    
-        new_attendee = User (
+        new_attendee = cls (
             first_name=attendee_info['first_name'], 
             last_name=attendee_info['last_name'],
             email=attendee_info['email'], 
@@ -135,6 +135,15 @@ class User(db.Model):
     @classmethod
     def get_all(cls):
         return cls.query.all()
+
+    @classmethod
+    def validate_login(cls, form):
+        user = cls.query.filter_by(email = form['email']).first()
+        print(user)
+        if user:
+            if bcrypt.check_password_hash(user.password, form['password']):
+                return user
+        return None
 
 class Gender(db.Model):
     __tablename__ = "genders"

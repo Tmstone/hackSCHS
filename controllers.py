@@ -24,12 +24,40 @@ def new_user():
 
 #login user
 def login():
+    user = User.validate_login(request.form)
+    if user:
+        session['user_id'] = user.id
+        session['first_name'] = user.first_name
+        return redirect('/dashboard')
+    flash('Email and password do not match')
     return redirect('/dashboard')
 
 #Adding first name
 def first():
     user = User.query.get(session['user_id'])
+    print (user)
     return user.first_name
+
+#display dashboard
+def dashboard():
+    if 'user_id' not in session:
+        return redirect('/')
+    user = User.get(session['user_id'])
+    session['first_name'] = user.first_name
+    details = User.query.all()
+    return render_template('dashboard.html',
+    user = user, data = details
+    )
+
+#display user update page
+def account():
+    if 'user_id' not in session:
+        return redirect('/')
+    user = User.get(session['user_id'])
+    session['first_name'] = user.first_name
+    return render_template('account.html',
+    user = user
+    )
 
 ##admin routes##
 #admin dashboard
@@ -46,21 +74,6 @@ def admin_in():
 #process registration form
 
 #pull all records
-
-#display dashboard
-def dashboard():
-    if 'user_id' not in session:
-        return redirect('/')
-    user = User.get(session['user_id'])
-    session['first_name'] = user.first_name
-    details = User.query.all()
-    return render_template('dashboard.html',
-    user = user, data = details
-    )
-
-#display user update page
-def account():
-    return render_template('account.html')
 
 #logout user
 def logout():
