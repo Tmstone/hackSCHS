@@ -18,13 +18,13 @@ def new_user():
         for error in errors:
             flash(error)
         return redirect('/register')
-    user_id = User.add_user(request.form)
-    session['user_id'] = user_id
+    user = User.add_user(request.form)
+    session['user_id'] = user.id
     return redirect('/dashboard')
 
 #login user
 def login():
-    return redirect('/dash')
+    return redirect('/dashboard')
 
 #Adding first name
 def first():
@@ -50,7 +50,7 @@ def admin_in():
 #display dashboard
 def dashboard():
     if 'user_id' not in session:
-        return('/')
+        return redirect('/')
     user = User.get(session['user_id'])
     session['first_name'] = user.first_name
     details = User.query.all()

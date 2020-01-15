@@ -83,7 +83,7 @@ class User(db.Model):
     @classmethod
     def validate_parent_phone(cls, parent_phone):
         errors=[]
-        if not PHONE_REGEX.match(parent_phone):
+        if len(parent_phone) < 7:
             errors.append('Please enter a valid phone number.')
         return errors
 
@@ -111,17 +111,22 @@ class User(db.Model):
     @classmethod
     def add_user(cls, attendee_info):
         pw_hash = bcrypt.generate_password_hash(attendee_info['password'])    
-        new_attendee=cls(first_name=attendee_info['first_name'], last_name=attendee_info['last_name'],
-        email=attendee_info['email'], password=pw_hash, phone=attendee_info['phone'])
+        new_attendee = User (
+            first_name=attendee_info['first_name'], 
+            last_name=attendee_info['last_name'],
+            email=attendee_info['email'], 
+            password=pw_hash, 
+            phone=attendee_info['phone']
+            )
         db.session.add(new_attendee)
         db.session.commit()
-        gender = Gender.new(new_attendee.id, attendee_info)
-        ethnicity = Ethnicity.new(new_attendee.id, attendee_info)
-        school = School.new(new_attendee.id , attendee_info)
-        graduation = Graduation.new(new_attendee.id, attendee_info)
-        goal = Goal.new(new_attendee.id , attendee_info)
-        parents = Parent.new(new_attendee.id, attendee_info)
-        bonus = Bonus.new(new_attendee.id, attendee_info)
+        #gender = Gender.new(new_attendee.id, attendee_info)
+        #ethnicity = Ethnicity.new(new_attendee.id, attendee_info)
+        #school = School.new(new_attendee.id , attendee_info)
+        #graduation = Graduation.new(new_attendee.id, attendee_info)
+        #goal = Goal.new(new_attendee.id , attendee_info)
+        #parents = Parent.new(new_attendee.id, attendee_info)
+        #bonus = Bonus.new(new_attendee.id, attendee_info)
         return new_attendee
 
     @classmethod
