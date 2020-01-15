@@ -109,7 +109,7 @@ class User(db.Model):
         return errors
 
     @classmethod
-    def new(cls, attendee_info):
+    def add_user(cls, attendee_info):
         pw_hash = bcrypt.generate_password_hash(attendee_info['password'])    
         new_attendee=cls(first_name=attendee_info['first_name'], last_name=attendee_info['last_name'],
         email=attendee_info['email'], password=pw_hash, phone=attendee_info['phone'])
@@ -249,10 +249,14 @@ class Parent(db.Model):
 
     @classmethod
     def new(cls, user_id, parent):
-        new_parent = cls(user_id=user_id)
+        new_parent = cls(user_id=user_id, parent_first=parent['parent_first'], parent_last=parent['parent_last'],
+        parent_phone=parent['parent_phone'], parent_email=parent['parent_email'])
         db.session.add(new_parent)
         db.session.commit()
         return new_parent
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()   
 
 class Bonus(db.Model):
     __tablename__ = "bonuses"
@@ -264,3 +268,12 @@ class Bonus(db.Model):
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     user=db.relationship('User',foreign_keys=[user_id],backref=db.backref("bonuses",cascade="all,delete-orphan"))
     
+    @classmethod
+    def new(cls, user_id, bonus):
+        new_bonus = cls(user_id=user_id, language=bonus['language'], hobby=bonus['hobby'])
+        db.session.add(new_bonus)
+        db.session.commit()
+        return new_bonus
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
