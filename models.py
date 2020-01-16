@@ -130,7 +130,7 @@ class User(db.Model):
         return new_attendee
     
     @classmethod
-    def edit_user(cls,form):
+    def edit_user(cls,user_id, form):
         user_update = User.query.get(session['user_id'])
         user_update.first_name = form['first_name']
         user_update.last_name = form['last_name']
@@ -283,14 +283,14 @@ class Parent(db.Model):
         return new_parent
     
     @classmethod
-    def edit_parent(cls,form):
+    def edit_parent(cls,user_id, form):
         update_parent = Parent.query.get(session['user_id'])
         update_parent.parent_first = form['parent_first']
         update_parent.parent_last = form['parent_last']
         update_parent.parent_phone = form['parent_phone']
         update_parent.parent_email = form['parent_email']
         db.session.commit()
-        return update_parent.first_name
+        return update_parent.parent_first
 
     @classmethod
     def get(cls, user_id):
