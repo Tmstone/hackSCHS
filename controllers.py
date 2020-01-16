@@ -62,6 +62,7 @@ def account():
     return render_template('account.html',
     user = user, contact = parent, sdata = school
     )
+
 #update user
 def update():
     if 'user_id' not in session:
@@ -100,5 +101,5 @@ def admin_in():
 
 #logout user
 def logout():
-    session.clear
+    session.clear()
     return redirect('/')
