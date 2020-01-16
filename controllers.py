@@ -64,8 +64,24 @@ def account():
     )
 #update user
 def update():
+    if 'user_id' not in session:
+        return redirect('/')
+    user_id = session['user_id'] 
+    errors = []
+    errors+=User.validate_name(request.form['first_name'], request.form['last_name'])
+    errors+=User.validate_email(request.form['email'])
+    errors+=User.validate_phone(request.form['phone'])
+    errors+=User.validate_parent(request.form['parent_first'], request.form['parent_last'])
+    errors+=User.validate_parent_email(request.form['parent_email'])
+    errors+=User.validate_parent_phone(request.form['parent_phone'])
+    for error in errors:
+        flash(error)
+    if not errors:
+        update = User.edit_user(user_id, request.form)
+        update_parent = Parent.edit_parent(user_id, request.form)
+        user = User.get(user_id)
     return redirect('/dashboard')
-    
+
 ##admin routes##
 #admin dashboard
 def admin():

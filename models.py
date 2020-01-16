@@ -128,7 +128,17 @@ class User(db.Model):
         parents = Parent.new(new_attendee.id, attendee_info)
         bonus = Bonus.new(new_attendee.id, attendee_info)
         return new_attendee
-
+    
+    @classmethod
+    def edit_user(cls,form):
+        user_update = User.query.get(session['user_id'])
+        user_update.first_name = form['first_name']
+        user_update.last_name = form['last_name']
+        user_update.email = form['email']
+        user_update.phone = form['phone']
+        db.session.commit()
+        return user_update.first_name
+    
     @classmethod
     def get(cls, user_id):
         return cls.query.get(user_id)
@@ -271,6 +281,17 @@ class Parent(db.Model):
         db.session.add(new_parent)
         db.session.commit()
         return new_parent
+    
+    @classmethod
+    def edit_parent(cls,form):
+        update_parent = Parent.query.get(session['user_id'])
+        update_parent.parent_first = form['parent_first']
+        update_parent.parent_last = form['parent_last']
+        update_parent.parent_phone = form['parent_phone']
+        update_parent.parent_email = form['parent_email']
+        db.session.commit()
+        return update_parent.first_name
+
     @classmethod
     def get(cls, user_id):
         return cls.query.get(user_id)
