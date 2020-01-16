@@ -44,9 +44,11 @@ def dashboard():
         return redirect('/')
     user = User.get(session['user_id'])
     session['first_name'] = user.first_name
-    details = User.query.all()
+    details = Parent.get(session['user_id'])
+    school = School.get(session['user_id'])
+    print(details)
     return render_template('dashboard.html',
-    user = user, data = details
+    user = user, data = details, sdata = school
     )
 
 #display user update page

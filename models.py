@@ -186,7 +186,7 @@ class Ethnicity(db.Model):
     def get_all(cls):
         return cls.query.all()
     @classmethod
-    def by_gender(cls, race):
+    def by_ethnicity(cls, race):
         return cls.query.filter(cls.race==race).first()
 
 class School(db.Model):
@@ -205,10 +205,13 @@ class School(db.Model):
         db.session.commit()
         return new_school
     @classmethod
+    def get(cls, user_id):
+        return cls.query.get(user_id)
+    @classmethod
     def get_all(cls):
         return cls.query.all()
     @classmethod
-    def by_gender(cls, school):
+    def by_school(cls, school):
         return cls.query.filter(cls.school==school).first()
 
 class Graduation(db.Model):
@@ -268,6 +271,9 @@ class Parent(db.Model):
         db.session.add(new_parent)
         db.session.commit()
         return new_parent
+    @classmethod
+    def get(cls, user_id):
+        return cls.query.get(user_id)
     @classmethod
     def get_all(cls):
         return cls.query.all()   
