@@ -19,7 +19,9 @@ app.add_url_rule('/login', view_func=login, methods=['POST'])
 app.add_url_rule('/dashboard', view_func=dashboard)
 
 #display user update page
-app.add_url_rule('/user/id', view_func=account)
+app.add_url_rule('/user/account', view_func=account)
+#update user
+app.add_url_rule('/user/update', view_func=update, methods=['POST'])
 
 #admin routes
 app.add_url_rule('/raspberry', view_func=pi)

@@ -56,11 +56,16 @@ def account():
     if 'user_id' not in session:
         return redirect('/')
     user = User.get(session['user_id'])
+    parent = Parent.get(session['user_id'])
+    school = School.get(session['user_id'])
     session['first_name'] = user.first_name
     return render_template('account.html',
-    user = user
+    user = user, contact = parent, sdata = school
     )
-
+#update user
+def update():
+    return redirect('/dashboard')
+    
 ##admin routes##
 #admin dashboard
 def admin():
