@@ -120,13 +120,13 @@ class User(db.Model):
             )
         db.session.add(new_attendee)
         db.session.commit()
-        #gender = Gender.new(new_attendee.id, attendee_info)
-        #ethnicity = Ethnicity.new(new_attendee.id, attendee_info)
-        #school = School.new(new_attendee.id , attendee_info)
-        #graduation = Graduation.new(new_attendee.id, attendee_info)
-        #goal = Goal.new(new_attendee.id , attendee_info)
-        #parents = Parent.new(new_attendee.id, attendee_info)
-        #bonus = Bonus.new(new_attendee.id, attendee_info)
+        gender = Gender.new(new_attendee.id, attendee_info)
+        ethnicity = Ethnicity.new(new_attendee.id, attendee_info)
+        school = School.new(new_attendee.id , attendee_info)
+        graduation = Graduation.new(new_attendee.id, attendee_info)
+        goal = Goal.new(new_attendee.id , attendee_info)
+        parents = Parent.new(new_attendee.id, attendee_info)
+        bonus = Bonus.new(new_attendee.id, attendee_info)
         return new_attendee
 
     @classmethod
@@ -157,7 +157,7 @@ class Gender(db.Model):
     @classmethod
     def new(cls, user_id, gender):
         new_gender = cls(user_id=user_id, gender=gender['gender'])
-        db.seesion.add(new_gender)
+        db.session.add(new_gender)
         db.session.commit()
         return new_gender
     @classmethod
@@ -179,7 +179,7 @@ class Ethnicity(db.Model):
     @classmethod
     def new(cls, user_id, race):
         new_ethnicity = cls(user_id=user_id, ethnicity=race['ethnicity'])
-        db.seesion.add(new_ethnicity)
+        db.session.add(new_ethnicity)
         db.session.commit()
         return new_ethnicity
     @classmethod
@@ -201,7 +201,7 @@ class School(db.Model):
     @classmethod
     def new(cls, user_id, school):
         new_school = cls(user_id=user_id, school=school['school'])
-        db.seesion.add(new_school)
+        db.session.add(new_school)
         db.session.commit()
         return new_school
     @classmethod
@@ -223,7 +223,7 @@ class Graduation(db.Model):
     @classmethod
     def new(cls, user_id, year):
         new_graduation = cls(user_id=user_id, graduation=year['graduation'])
-        db.seesion.add(new_graduation)
+        db.session.add(new_graduation)
         db.session.commit()
         return new_graduation
     @classmethod
@@ -245,7 +245,7 @@ class Goal(db.Model):
     @classmethod
     def new(cls, user_id, goal):
         new_goal = cls(user_id=user_id, goal=goal['goal'])
-        db.seesion.add(new_goal)
+        db.session.add(new_goal)
         db.session.commit()
         return new_goal
 
@@ -284,7 +284,7 @@ class Bonus(db.Model):
     
     @classmethod
     def new(cls, user_id, bonus):
-        new_bonus = cls(user_id=user_id, language=bonus['language'], hobby=bonus['hobby'])
+        new_bonus = cls(user_id=user_id, langage=bonus['language'], hobby=bonus['hobby'])
         db.session.add(new_bonus)
         db.session.commit()
         return new_bonus
