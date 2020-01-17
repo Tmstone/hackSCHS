@@ -221,6 +221,10 @@ class School(db.Model):
     def get_all(cls):
         return cls.query.all()
     @classmethod
+    def get_school(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).first()
+
+    @classmethod
     def by_school(cls, school):
         return cls.query.filter(cls.school==school).first()
 
@@ -297,7 +301,10 @@ class Parent(db.Model):
         return cls.query.get(user_id)
     @classmethod
     def get_all(cls):
-        return cls.query.all()   
+        return cls.query.all()
+    @classmethod
+    def get_parent(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).first()  
 
 class Bonus(db.Model):
     __tablename__ = "bonuses"

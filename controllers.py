@@ -29,6 +29,8 @@ def login():
         session['user_id'] = user.id
         session['first_name'] = user.first_name
         return redirect('/dashboard')
+        print('*'*90)
+        print(session['user_id'])
     flash('Email and password do not match')
     return redirect('/dashboard')
 
@@ -43,9 +45,10 @@ def dashboard():
     if 'user_id' not in session:
         return redirect('/')
     user = User.get(session['user_id'])
+    user_id = session['user_id']
     session['first_name'] = user.first_name
-    details = Parent.get(session['user_id'])
-    school = School.get(session['user_id'])
+    details = Parent.get_parent(user_id)
+    school = School.get_school(user_id)
     print(details)
     return render_template('dashboard.html',
     user = user, data = details, sdata = school
@@ -56,9 +59,12 @@ def account():
     if 'user_id' not in session:
         return redirect('/')
     user = User.get(session['user_id'])
-    parent = Parent.get(session['user_id'])
-    school = School.get(session['user_id'])
+    parent = Parent.get_parent(session['user_id'])
+    school = School.get_school(session['user_id'])
     session['first_name'] = user.first_name
+    print('*'*90)
+    print(session['user_id'])
+    print(school)
     return render_template('account.html',
     user = user, contact = parent, sdata = school
     )
