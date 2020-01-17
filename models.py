@@ -5,7 +5,7 @@ from config import *
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 PW_REGEX = re.compile('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$')
-PHONE_REGEX = re.compile('^\d{3}-\d{3}-\d{4}$')
+#PHONE_REGEX = re.compile('^\d{3}-\d{3}-\d{4}$')
 
 class User(db.Model):
     __tablename__ = "users"
