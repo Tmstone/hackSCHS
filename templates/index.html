@@ -65,20 +65,30 @@
             </nav>   
         </div>
         <div class="lForm" id="signin">
-            <h4>Login</h4>
-            <!--add validation-->
-            
-            <form action="/login" method="post">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" value="">
+            <div class="row">
+                <div class="col-4">
+                    <h4>Login</h4>
+                    <!--add validation-->
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p style="color: red">{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}    
+                    <form action="/login" method="post">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" value="">
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Login">
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" value="">
-                </div>
-                <input type="submit" class="btn btn-primary" value="Login">
-            </form>
+            </div>
         </div>
         <div id="main">
             <h1>HackSCHS</h1>
