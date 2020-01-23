@@ -112,3 +112,4 @@ def admin_in():
 def logout():
     session.clear()
     return redirect('/')
+ 
