@@ -53,7 +53,7 @@
                             </a>
                             <!--div class="dropdown-menu" aria-labelledby="navbarDropdown"-->
                                             
-                                <form class="dropdown-menu p-3" action="/login" method="post">
+                                <form class="dropdown-menu mx-sm-n5 p-3" action="/login" method="post">
                                     <h4>Login</h4>
                                     <!--add validation-->
                                     {% with messages = get_flashed_messages() %}
@@ -65,11 +65,11 @@
                                     {% endwith %}
                                     <div class="form-group">
                                         <label for="exampleDropdownFormEmail2">Email address</label>
-                                        <input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                                        <input type="email" class="form-control" name="email" id="exampleDropdownFormEmail2">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleDropdownFormPassword2">Password</label>
-                                        <input type="password" class="form-control" name="password" id="exampleDropdownFormPassword2" placeholder="Password">
+                                        <input type="password" class="form-control" name="password" id="exampleDropdownFormPassword2">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Sign in</button>
                                 </form>
