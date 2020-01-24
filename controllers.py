@@ -104,8 +104,6 @@ def admin_in():
         return redirect('/')
     return redirect('/admindash')
 
-#process registration form
-
 #pull all records
 
 #logout user
