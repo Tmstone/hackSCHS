@@ -7,3 +7,4 @@ from admin_controller import *
 app.add_url_rule('/raspberry', view_func=pi)
 app.add_url_rule('/admin', view_func=admin_in, methods=['POST'])
 app.add_url_rule('/admindash', view_func=admin)
+app.add_url_rule('/admin/logout', view_func=admin_logout)

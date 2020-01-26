@@ -18,4 +18,9 @@ def admin_in():
         return redirect('/')
     return redirect('/admindash')
 
+
 #pull all records
+
+def admin_logout():
+    session.clear()
+    return redirect('/')
