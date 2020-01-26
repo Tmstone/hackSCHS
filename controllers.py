@@ -88,3 +88,8 @@ def update():
         update_parent = Parent.edit_parent(user_id, request.form)
         user = User.get(user_id)
     return redirect('/dashboard')
+
+#logout user
+def logout():
+    session.clear()
+    return redirect('/')
