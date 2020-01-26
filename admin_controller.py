@@ -18,6 +18,9 @@ def admin_in():
         return redirect('/')
     return redirect('/admindash')
 
+def admin_account():
+    return render_template('adminaccount.html')
+
 
 #pull all records
 
