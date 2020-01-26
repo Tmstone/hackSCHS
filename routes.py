@@ -23,17 +23,4 @@ app.add_url_rule('/user/account', view_func=account)
 #update user
 app.add_url_rule('/user/update', view_func=update, methods=['POST'])
 
-#admin routes
-app.add_url_rule('/raspberry', view_func=pi)
-app.add_url_rule('/admin', view_func=admin_in, methods=['POST'])
-app.add_url_rule('/admindash', view_func=admin)
-
-#process form
-
-
-
-
-
-
-#pull all records
 
