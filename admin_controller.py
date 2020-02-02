@@ -1,7 +1,7 @@
 ''' Admin controller '''
 from flask import render_template, redirect, request, session, flash
 from config import db, datetime
-#from admin_models import Organizer
+from admin_model import Organizer
 
 ##admin routes##
 #admin dashboard
