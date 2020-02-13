@@ -2,6 +2,7 @@
 from flask import render_template, redirect, request, session, flash
 from config import db, datetime
 from admin_model import Organizer
+from models import *
 
 ##admin routes##
 #admin dashboard

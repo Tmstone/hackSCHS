@@ -63,8 +63,8 @@ class Organizer(db.Model):
         Create a default administrator to start the database with.
         Normally you would call this only from a command line python session.
         '''
-        staff_info={'username': 'admin', 'first_name': 'default', 'last_name': 'admin', 'password': 'changeme', 'email':''}
-        admin=cls.new(staff_info)
+        admin_info={'username': 'admin', 'first_name': 'default', 'last_name': 'admin', 'password': 'changeme', 'email':'', 'user_level': '10'}
+        admin=cls.new(admin_info)
         admin.make_admin()
         return admin
     @classmethod
@@ -104,4 +104,4 @@ class Organizer(db.Model):
         admin_update.email = form['email']
         admin_update.user_level = form['user_level']
         db.session.commit()
-        return staff_update.first_name
+        return admin_update.first_name
