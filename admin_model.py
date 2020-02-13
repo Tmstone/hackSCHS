@@ -57,4 +57,51 @@ class Organizer(db.Model):
     def validate_info(cls,customer_info):
         errors=[]
         return errors
-    
+    @classmethod
+    def create_default_admin(cls):
+        '''
+        Create a default administrator to start the database with.
+        Normally you would call this only from a command line python session.
+        '''
+        staff_info={'username': 'admin', 'first_name': 'default', 'last_name': 'admin', 'password': 'changeme', 'email':''}
+        admin=cls.new(staff_info)
+        admin.make_admin()
+        return admin
+    @classmethod
+    def validate_login(cls,form):
+        '''
+        form=['username':string,'password':string]
+        '''
+        # print(form)
+        user=cls.query.filter(cls.username==form['username']).first()
+        # print('*'*80,user)
+        if user:
+            if bcrypt.check_password_hash(user.password,form['password']):
+                return user
+        return None
+    @classmethod
+    def get_all_admins(cls):
+        return cls.query.filter(cls.user_level>=6).all()
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
+    @classmethod
+    def is_logged_in_as_admin(cls,admin_id,login_session):
+        user=cls.query.get(admin_id)
+        print("employee id",admin_id)
+        result=False
+        if user:
+            if bcrypt.check_password_hash(login_session,str(user.created_at)):
+                if user.user_level>=6:
+                    print("admin login_success")
+                    result=True
+        return result
+    @classmethod
+    def edit_user(cls,form):
+        admin_update = Organizer.query.get(session['user_id'])
+        admin_update.first_name = form['first_name']
+        admin_update.last_name = form['last_name']
+        admin_update.email = form['email']
+        admin_update.user_level = form['user_level']
+        db.session.commit()
+        return staff_update.first_name
