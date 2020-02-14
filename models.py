@@ -310,7 +310,7 @@ class Bonus(db.Model):
     __tablename__ = "bonuses"
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-    langage = db.Column(db.String(45))
+    language = db.Column(db.String(45))
     hobby = db.Column(db.String(45))   
     created_at = db.Column(db.DateTime, server_default=func.now())
     updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())

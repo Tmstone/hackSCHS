@@ -9,17 +9,31 @@ from models import *
 def admin():
     if 'admin_id' not in session:
         return redirect('/')
-    return render_template('admindash.html')
+    admin = session['first_name']
+    attendees = User.get_all_users()
+    print(admin)
+    print(attendees)
+    return render_template('admindash.html',
+    name = admin, hackers = attendees
+    )
 
 def pi():
     return render_template('login.html')
 
-def admin_in():
-    if 'admin_id' not in session:
-        return redirect('/')
-    return redirect('/admindash')
+#log in admin
+def admin_in(): 
+    admin = Organizer.validate_login(request.form)
+    if admin:
+        session['admin_id'] = admin.id
+        session['first_name'] = admin.first_name
+        print('*'*90)
+        print(session['admin_id'], session['first_name'])
+        return redirect('/admindash')
+    flash('Email and password do not match')
+    return redirect('/')
 
 def admin_account():
+
     return render_template('adminaccount.html')
 
 

@@ -32,7 +32,7 @@ def login():
         print('*'*90)
         print(session['user_id'])
     flash('Email and password do not match')
-    return redirect('/dashboard')
+    return redirect('/')
 
 #Adding first name
 def first():

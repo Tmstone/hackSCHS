@@ -73,11 +73,11 @@ class Organizer(db.Model):
         form=['username':string,'password':string]
         '''
         # print(form)
-        user=cls.query.filter(cls.username==form['username']).first()
+        admin=cls.query.filter(cls.email==form['email']).first()
         # print('*'*80,user)
-        if user:
-            if bcrypt.check_password_hash(user.password,form['password']):
-                return user
+        if admin:
+            #if bcrypt.check_password_hash(admin.password, form['password']):
+                return admin
         return None
     @classmethod
     def get_all_admins(cls):

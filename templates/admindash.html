@@ -44,17 +44,17 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            {%for hacker in hackers%}
                             <tr>
-                                <td>{{fname}} {{lname}}</td>
-                                <td>{{email}}</td>
-                                <td>{{phone}}</td>
-                                <td>{{gender}}</td>
-                                <td>{{ethnicity}}</td>
-                                <td>{{school}}</td>
-                                <td>{{graduation}}</td>
+                                <td>{{hacker.first_name}} {{hacker.last_name}}</td>
+                                <td>{{hacker.email}}</td>
+                                <td>{{hacker.phone}}</td>
+                                <td>{{hacker.gender}}</td>
+                                <td>{{hacker.ethnicity}}</td>
+                                <td>{{hacker.school}}</td>
+                                <td>{{hacker.graduation}}</td>
                             </tr>
-
+                            {%endfor%}
                         </tbody>
                     </table>
                     <!--Parant contact-->
@@ -114,9 +114,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                
                                 <tr>
-                                    <th>{{fname}} {{lnmae}}</th>
+                                    <th>{{first_name}} {{last_name}}</th>
                                     <td>{{career}}</td>
                                     <td>{{language}}</td>
                                     <th>{{hobby}}</th>
