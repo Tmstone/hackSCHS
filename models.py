@@ -143,7 +143,7 @@ class User(db.Model):
     def get(cls, user_id):
         return cls.query.get(user_id)
     @classmethod
-    def get_all(cls):
+    def get_all_users(cls):
         return cls.query.all()
 
     @classmethod
