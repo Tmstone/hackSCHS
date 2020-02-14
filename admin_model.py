@@ -63,7 +63,7 @@ class Organizer(db.Model):
         Create a default administrator to start the database with.
         Normally you would call this only from a command line python session.
         '''
-        admin_info={'username': 'admin', 'first_name': 'default', 'last_name': 'admin', 'password': 'changeme', 'email':'', 'user_level': '10'}
+        admin_info={'first_name': 'default', 'last_name': 'admin', 'password': 'changeme', 'email':'admin@hackschs.info', 'user_level': '10'}
         admin=cls.new(admin_info)
         admin.make_admin()
         return admin
