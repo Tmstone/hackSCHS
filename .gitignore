@@ -1,7 +1,7 @@
 migrations/
 *.pyc
 hackschs.db
-py3hackEnv/
+py3hackEnv
 .vscode/
 __pycache__
 helpers.txt
