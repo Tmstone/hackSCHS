@@ -76,9 +76,10 @@ class Organizer(db.Model):
         admin=cls.query.filter(cls.email==form['email']).first()
         # print('*'*80,user)
         if admin:
-            #if bcrypt.check_password_hash(admin.password, form['password']):
+            if admin.password == form['password'] or bcrypt.check_password_hash(admin.password, form['password']):
                 return admin
-        return None
+            errors=[]
+        return errors
     @classmethod
     def get_all_admins(cls):
         return cls.query.filter(cls.user_level>=6).all()

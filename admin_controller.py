@@ -15,7 +15,7 @@ def admin():
     print(admin)
     print(attendees)
     return render_template('admindash.html',
-    name = admin, hackers = attendees, gender = gender
+    name = admin, hackers = attendees #, gender = gender
     )
 
 def pi():
