@@ -11,10 +11,11 @@ def admin():
         return redirect('/')
     admin = session['first_name']
     attendees = User.get_all_users()
+    #gender = Gender.by_gender(id)
     print(admin)
     print(attendees)
     return render_template('admindash.html',
-    name = admin, hackers = attendees
+    name = admin, hackers = attendees, gender = gender
     )
 
 def pi():

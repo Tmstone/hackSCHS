@@ -8,6 +8,9 @@
       width: 100%;
     }
   }
+html {
+    scroll-behavior: smooth;
+}
 body {
     padding: 10px;
     font-family: 'Alegreya', serif;
