@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackSCHS | Admin Account</title>
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,500,900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <h3>HackSCHS | Admin Account</h3>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <div id="nav">
+                    <img src="{{ url_for('static', filename='img/hackSCHS18.png') }}" alt="" width="75" height="175">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="/update/user">Update</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-10">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
