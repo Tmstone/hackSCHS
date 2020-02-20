@@ -69,13 +69,13 @@
                                     </tr> 
                                 </thead>
                                 <tbody>
-
+                                    {%for parent in parents%}
                                     <tr>
                                         <td>{{fname}} {{lname}}</td>
-                                        <td>{{parentfn}} {{parentln}}</td>
-                                        <td>{{pphone}} {{pemail}}</td>
+                                        <td>{{parent.parent_first}} {{parent.parent_last}}</td>
+                                        <td>{{parent.parent_phone}} | {{parent.parent_email}}</td>
                                     </tr>
-
+                                    {%endfor%}
                                 </tbody>
                             </table>
                         </div>
@@ -90,13 +90,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    {%for school in schools%}
                                     <tr>
                                         <td>{{fname}} {{lname}}</td>
-                                        <td>{{school}}</td>
+                                        <td>{{school.school}}</td>
                                         <td>{{year}}</td>
                                     </tr>
-
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>

@@ -11,11 +11,16 @@ def admin():
         return redirect('/')
     admin = session['first_name']
     attendees = User.get_all_users()
+    schools = School.get_all()
+    parents = Parent.get_all()
     #gender = Gender.by_gender(id)
+    print('*'*80)
     print(admin)
     print(attendees)
+    print(schools)
+    print(parents)
     return render_template('admindash.html',
-    name = admin, hackers = attendees #, gender = gender
+    name = admin, hackers = attendees, schools = schools, parents = parents
     )
 
 def pi():
