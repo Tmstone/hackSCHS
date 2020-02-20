@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from sqlalchemy.sql import func
 from config import *
 
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 PW_REGEX = re.compile('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$')
 
 class Organizer(db.Model):
@@ -46,17 +47,21 @@ class Organizer(db.Model):
 
 #validate update admin & staff
     @classmethod
-    def validate_password(cls,name):
+    def validate_password(cls, password):
         errors=[]
+        if not PW_REGEX.match(password) or password != password:
+            errors.append('* Please enter a valid password: 6-20 characters, A-Z and (# $ % @ &)')
+        if password == "":
+            errors.append('Please enter a valid password')
         return errors
+
     @classmethod
-    def validate_email(cls,name):
+    def validate_email(cls, email):
         errors=[]
+        if not EMAIL_REGEX.match(email):
+            errors.append('Please enter a valid email.')
         return errors
-    @classmethod
-    def validate_info(cls,customer_info):
-        errors=[]
-        return errors
+
     @classmethod
     def create_default_admin(cls):
         '''
@@ -73,19 +78,21 @@ class Organizer(db.Model):
         form=['username':string,'password':string]
         '''
         # print(form)
-        admin=cls.query.filter(cls.email==form['email']).first()
+        admin = cls.query.filter_by(email = form['email']).first()
         # print('*'*80,user)
         if admin:
             if admin.password == form['password'] or bcrypt.check_password_hash(admin.password, form['password']):
                 return admin
-            errors=[]
-        return errors
+        return None
+
     @classmethod
     def get_all_admins(cls):
         return cls.query.filter(cls.user_level>=6).all()
+
     @classmethod
     def get_all(cls):
         return cls.query.all()
+
     @classmethod
     def is_logged_in_as_admin(cls,admin_id,login_session):
         user=cls.query.get(admin_id)
@@ -97,6 +104,7 @@ class Organizer(db.Model):
                     print("admin login_success")
                     result=True
         return result
+
     @classmethod
     def edit_user(cls,form):
         admin_update = Organizer.query.get(session['user_id'])
