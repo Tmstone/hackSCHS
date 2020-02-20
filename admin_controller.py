@@ -34,8 +34,10 @@ def admin_in():
     return redirect('/')
 
 def admin_account():
-
-    return render_template('adminaccount.html')
+    if 'admin_id' not in session:
+        return redirect('/')
+    admin = session['first_name']
+    return render_template('adminacc.html', name = admin)
 
 
 #pull all records
