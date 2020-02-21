@@ -24,7 +24,7 @@ class Organizer(db.Model):
     def __repr(self):
         return '<Organizer{}>'.format(self.email)
 
-# admin updat functions
+# admin update functions
     def update_firstName(self, new_fname):
         self.first_name = new_fname
         db.session.commit()
@@ -72,6 +72,7 @@ class Organizer(db.Model):
         admin=cls.new(admin_info)
         admin.make_admin()
         return admin
+
     @classmethod
     def validate_login(cls,form):
         '''
@@ -84,6 +85,10 @@ class Organizer(db.Model):
             if admin.password == form['password'] or bcrypt.check_password_hash(admin.password, form['password']):
                 return admin
         return None
+
+    @classmethod
+    def get(cls, admin_id):
+        return cls.query.get(admin_id)
 
     @classmethod
     def get_all_admins(cls):
