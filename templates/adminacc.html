@@ -31,8 +31,9 @@
                 <h2>Welcome {{name}}</h2>
                 <p>Name: {{user.first_name}} {{user.last_name}}</p>
                 <p>Email: {{user.email}}</p>
-                <p>Status: </p>
-                
+                {%if user.user_level >="10"%}
+                <p>Status: Admin</p>
+                {%endif%}
                 <div class="row">
                     <div class="col">
                         <h3>New Staff</h3>
