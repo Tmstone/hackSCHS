@@ -42,8 +42,10 @@ def admin_account():
     if 'admin_id' not in session:
         return redirect('/')
     admin = session['first_name']
-    #organizer = Organizer.get_all()
-    return render_template('adminacc.html', name = admin #, org = organizer
+    user = Organizer.get(session['admin_id'])
+    print('*'*90)
+    print(user)
+    return render_template('adminacc.html', name = admin, user = user
     )
 
 
