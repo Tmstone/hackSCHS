@@ -37,9 +37,55 @@
                 <div class="row">
                     <div class="col">
                         <h3>New Staff</h3>
+                        <form action="" class="" method="POST">
+                            <div class="form-group">
+                                <label for="first_name">First Name:</label>
+                                <input type="text" id="" class="form-control" name="firs_tname" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" id="" class="form-control" name="last_tname" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="text" id="" class="form-control" name="email" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" id="" class="form-control" name="password" value="">
+                            </div> 
+                            <div class="form-group">
+                                <label for="user_level">User Type:</label>
+                                <input type="number" id="" class="form-control" name="user_level" value="">
+                            </div>    
+                            <div>
+                                <input type="submit" class="btn btn-primary" name="submit" value="submit">
+                            </div>
+                        </form>
                     </div>
                     <div class="col">
                         <h3>Update Account</h3>
+                        <form action="" class="" method="POST">
+                            <div class="form-group">
+                                <label for="first_name">First Name:</label>
+                                <input type="text" id="" class="form-control" name="firs_tname" value="{{user.first_name}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" id="" class="form-control" name="last_tname" value="{{user.last_name}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="text" id="" class="form-control" name="email" value="{{user.email}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" id="" class="form-control" name="password" value="{{user.password}}">
+                            </div>    
+                            <div>
+                                <input type="submit" class="btn btn-primary" name="submit" value="submit">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
