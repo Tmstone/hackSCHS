@@ -46,7 +46,7 @@
                         <tbody>
                             {%for hacker in hackers%}
                             <tr>
-                                <td><a href="/hacker.id">{{hacker.first_name}} {{hacker.last_name}}</a></td>
+                                <td><a href="/view/{{hacker.id}}/hacker">{{hacker.first_name}} {{hacker.last_name}}</a></td>
                                 <td>{{hacker.email}}</td>
                                 <td>{{hacker.phone}}</td>
                                 <td>{{hacker.gender}}</td>
