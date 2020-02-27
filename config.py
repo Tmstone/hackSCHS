@@ -7,6 +7,7 @@ from datetime import datetime
 import re
 
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 #configurations to tell our app about the database we'll be connecting to
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hackschs.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
