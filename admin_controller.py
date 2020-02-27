@@ -54,9 +54,12 @@ def attendee(id):
     user = User.get(id)
     parent = Parent.get_parent(user.id)
     school = School.get_school(user.id)
+    bonus = Bonus.get_bonus(user.id)
+    gender = Gender.get_gender(user.id)
     return render_template('attendee.html',
     name = admin, hacker = user, contact = parent,
-    sdata = school
+    sdata = school, extra = bonus, gender = gender
+     
     )
 #pull all records
 

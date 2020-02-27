@@ -30,22 +30,32 @@
                 <div class="section">
                     <h2>Welcome {{name}}</h2>
                     <p><em>Registration Deadline: </em>Monday, February 24th 2019, 11:59 pm (Eastern)</p>
-                    <hr>
+                        <hr>
+                    
                     <h3>Attendee Data</h3>
-                    <hr>
-                    <p>Name: {{hacker.first_name}} {{hacker.last_name}}</p>
-                    <p>Email: {{hacker.email}}</p>
-                    <p>Phone: {{hacker.phone}}</p>
-                    <p>Gender: </p>
-                    <p>Ethnicity: </p>
-                
+                        <hr>
+                            <h4>{{hacker.first_name}} {{hacker.last_name}}</h4>
+                            <p>Email: {{hacker.email}}</p>
+                            <p>Phone: {{hacker.phone}}</p>
+                            <p>Gender: {{gender.gender}}</p>
+                            <p>Ethnicity: </p>
+                            <p>Graduation year: </p>
+                            <p>Hackathon Goal: </p>
+                        <hr>
+                    
                     <h3>Parent Info</h3>
-                    <hr>
-                    <p>Parent Contact: {{contact.parent_first}} {{contact.parent_last}} | Phone: {{contact.parent_phone}} | email: {{contact.parent_email}}</p>
+                        <hr>
+                            <p>Parent Contact: {{contact.parent_first}} {{contact.parent_last}} | Phone: {{contact.parent_phone}} | email: {{contact.parent_email}}</p>
+                        <hr>
                     
                     <h3>School Info</h3>
-                    <hr>
-                    <p></p>
+                        <hr>
+                            <p>School: {{sdata.school}}</p>
+
+                    <h3>Bonus Info</h3>
+                        <hr>
+                            <p>Favorite Language: {{extra.language}}</p>
+                            <p>Hobby: {{extra.hobby}} </p>
                 </div>
             </div>
         </div>
