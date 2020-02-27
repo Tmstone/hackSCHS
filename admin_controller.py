@@ -47,8 +47,17 @@ def admin_account():
     print(user)
     return render_template('adminacc.html', name = admin, user = user
     )
-
-
+def attendee(id):
+    if 'admin_id' not in session:
+        return redirect('/')
+    admin = session['first_name']
+    user = User.get(id)
+    parent = Parent.get_parent(user.id)
+    school = School.get_school(user.id)
+    return render_template('attendee.html',
+    name = admin, hacker = user, contact = parent,
+    sdata = school
+    )
 #pull all records
 
 def admin_logout():
