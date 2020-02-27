@@ -174,6 +174,9 @@ class Gender(db.Model):
     def get_all(cls):
         return cls.query.all()
     @classmethod
+    def get_gender(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).first()
+    @classmethod
     def by_gender(cls, gender):
         return cls.query.filter(cls.gender==gender).first()
 
@@ -195,6 +198,9 @@ class Ethnicity(db.Model):
     @classmethod
     def get_all(cls):
         return cls.query.all()
+    @classmethod
+    def get_ethnicity(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).first()
     @classmethod
     def by_ethnicity(cls, race):
         return cls.query.filter(cls.race==race).first()
@@ -223,7 +229,6 @@ class School(db.Model):
     @classmethod
     def get_school(cls, user_id):
         return cls.query.filter_by(user_id=user_id).first()
-
     @classmethod
     def by_school(cls, school):
         return cls.query.filter(cls.school==school).first()
@@ -247,6 +252,9 @@ class Graduation(db.Model):
     def get_all(cls):
         return cls.query.all()
     @classmethod
+    def get_graduation(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).first()
+    @classmethod
     def by_gender(cls, year):
         return cls.query.filter(cls.year==year).first()
 
@@ -265,6 +273,9 @@ class Goal(db.Model):
         db.session.add(new_goal)
         db.session.commit()
         return new_goal
+    @classmethod
+    def get_goal(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).first()
 
 class Parent(db.Model):
     __tablename__ = "parents"
@@ -322,6 +333,9 @@ class Bonus(db.Model):
         db.session.add(new_bonus)
         db.session.commit()
         return new_bonus
+    @classmethod
+    def get_bonus(cls, user_id):
+        return cls.query.filter_by(user_id=user_id).first()
     @classmethod
     def get_all(cls):
         return cls.query.all()
