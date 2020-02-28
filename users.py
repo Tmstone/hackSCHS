@@ -7,7 +7,7 @@ print()
 print()
 contacts = Parent.get_all()
 for contact in contacts:
-    print("Name: " + contact.parent_first + " " + contact.parent_last)
-    print("Email: " + contact.parent_email + " " + contact.parent_phone)
+    print("Parent Name: " + contact.parent_first + " " + contact.parent_last)
+    print("Parent Email: " + contact.parent_email + " " + "Parent Phone: " + contact.parent_phone)
 
    
