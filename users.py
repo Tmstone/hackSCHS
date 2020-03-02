@@ -1,4 +1,4 @@
-from models import User, Parent, db
+from models import User, Parent, School, db
 users = User.get_all_users()
 counter = 0
 parent_counter = 0
@@ -15,5 +15,7 @@ for contact in contacts:
     parent_counter = parent_counter + 1
     print(str(parent_counter) + " Parent Name: " + contact.parent_first + " " + contact.parent_last)
     print("Parent Email: " + contact.parent_email + " " + "Parent Phone: " + contact.parent_phone)
-
-   
+print()
+schools = School.get_all()
+for school in schools:
+    print(str(school.id) + " " + school.school)
