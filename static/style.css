@@ -1,4 +1,11 @@
 /* Style sheet for main site 
+Theme: Autumn Moon
+#315791 - dark blue by Valerinka
+#A27010 - Reaction Fairy by colourslave
+#8D7F66 - dark beige by jess3110
+#0F0A05 - double black Coffee by mabills
+#F8C250 - caramel by feely
+#166030 - SCHS green
 * {
     border: 1px solid red;
 }*/
@@ -32,7 +39,7 @@ body {
 }
     #main h1 {
     font-size: 4em;
-    color: #166030;
+    color: #315791;
 }
     #main p {
         margin: 10px;
@@ -42,12 +49,13 @@ body {
     /* padding: 100px 300px; */
     padding: 100px;
     color: #fff;
-    background-color: #165F30;
+    /*background-color: #165F30;*/
+    background-color: #0F0A05;
 }
 #faq {
     /* padding: 70px 300px; */
     padding: 100px;
-    background-color: #F4FAD2;
+    background-color:#8D7F66 ;
 }
 #sponsors {
     height: 300px;
