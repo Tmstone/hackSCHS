@@ -77,3 +77,7 @@ body {
     padding: 20px;
     background: #FFFEE4;
 }
+.social {
+    display: inline-block;
+    text-align: center;
+}
