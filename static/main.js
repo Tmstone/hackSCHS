@@ -3,7 +3,9 @@ $(document).ready(function(){
         $.get(" ");
     })
     $('#lBtn').click(function(){
-        $('.lForm').toggle();
+        //$.get("templates/register.html")
+        //$('.lForm').toggle();
+        //add registration button link here
     })
     //validate login form here
     $('loginForm').submit(
